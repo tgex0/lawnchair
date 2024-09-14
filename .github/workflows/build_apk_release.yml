@@ -14,8 +14,6 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - name: Fetch
-        run: git fetch origin 14-dev:main
       - name: Java
         uses: actions/setup-java@v4
         with:
