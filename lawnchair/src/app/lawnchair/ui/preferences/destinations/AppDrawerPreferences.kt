@@ -125,7 +125,7 @@ fun AppDrawerPreferences(
                         label = stringResource(id = R.string.label_size),
                         adapter = prefs2.drawerIconLabelSizeFactor.getAdapter(),
                         step = 0.1F,
-                        valueRange = 0.5F..1.5F,
+                        valueRange = 0.3F..1.5F,
                         showAsPercentage = true,
                     )
                     SwitchPreference(
