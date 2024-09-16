@@ -180,7 +180,7 @@ fun HomeScreenPreferences(
                     label = stringResource(id = R.string.label_size),
                     adapter = prefs2.homeIconLabelSizeFactor.getAdapter(),
                     step = 0.1f,
-                    valueRange = 0.5F..1.5F,
+                    valueRange = 0.3F..1.5F,
                     showAsPercentage = true,
                 )
             }

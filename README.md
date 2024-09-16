@@ -61,5 +61,5 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Ensured System Icon shape is as accurate as possible
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
--   Reduced minimum Icons Label size
+-   Reduced minimum Home screen and App drawer Icons Label size
 -   Signed APK with personal key
