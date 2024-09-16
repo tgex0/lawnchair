@@ -161,10 +161,12 @@ sealed class IconCornerShape {
         override fun toString(): String = "ultrasquircle"
     }
 
-    data object Sammy : BaseBezierPath() {
+    object Sammy : BaseBezierPath() {
 
         override val controlDistanceX: Float = 0.4431717f
         override val controlDistanceY: Float = 0.14010102f
+
+        override fun toString(): String = "sammy"
     }
 
     open class Arc : BaseBezierPath() {

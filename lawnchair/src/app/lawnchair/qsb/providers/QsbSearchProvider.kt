@@ -121,22 +121,22 @@ sealed class QsbSearchProvider(
 
         fun values() = listOf(
             AppSearch,
-            Google,
-            GoogleGo,
-            Youtube,
-            PixelSearch,
-            Sesame,
-            Wikipedia,
-            GitHub,
-            DuckDuckGo,
-            Presearch,
             Bing,
             Brave,
-            Yandex,
+            DuckDuckGo,
             Firefox,
+            GitHub,
+            Google,
+            GoogleGo,
             Iceraven,
-            Startpage,
             Mull,
+            PixelSearch,
+            Presearch,
+            Sesame,
+            Startpage,
+            Wikipedia,
+            Yandex,
+            Youtube,
         )
 
         /**

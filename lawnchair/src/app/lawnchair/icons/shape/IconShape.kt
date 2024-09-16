@@ -464,6 +464,70 @@ open class IconShape(
         }
     }
 
+    object Lemon : IconShape(
+        IconCornerShape.arc,
+        IconCornerShape.arc,
+        IconCornerShape.arc,
+        IconCornerShape.arc,
+        1f,
+        0.2f,
+        0.2f,
+        1f,
+    ) {
+
+        override fun toString(): String {
+            return "lemon"
+        }
+    }
+
+    object LightSquircle : IconShape(
+        IconCornerShape.LightSquircle,
+        IconCornerShape.LightSquircle,
+        IconCornerShape.LightSquircle,
+        IconCornerShape.LightSquircle,
+        1f,
+        1f,
+        1f,
+        1f,
+    ) {
+
+        override fun toString(): String {
+            return "lightSquircle"
+        }
+    }
+
+    object StrongSquircle : IconShape(
+        IconCornerShape.StrongSquircle,
+        IconCornerShape.StrongSquircle,
+        IconCornerShape.StrongSquircle,
+        IconCornerShape.StrongSquircle,
+        1f,
+        1f,
+        1f,
+        1f,
+    ) {
+
+        override fun toString(): String {
+            return "strongSquircle"
+        }
+    }
+
+    object UltraSquircle : IconShape(
+        IconCornerShape.UltraSquircle,
+        IconCornerShape.UltraSquircle,
+        IconCornerShape.UltraSquircle,
+        IconCornerShape.UltraSquircle,
+        1f,
+        1f,
+        1f,
+        1f,
+    ) {
+
+        override fun toString(): String {
+            return "ultraSquircle"
+        }
+    }
+
     companion object {
 
         fun fromString(value: String, context: Context): IconShape? {
@@ -489,6 +553,10 @@ open class IconShape(
             "hexagon" -> Hexagon
             "diamond" -> Diamond
             "egg" -> Egg
+            "lemon" -> Lemon
+            "lightSquircle" -> LightSquircle
+            "strongSquircle" -> StrongSquircle
+            "ultraSquircle" -> UltraSquircle
             "" -> null
             else -> runCatching { parseCustomShape(value) }.getOrNull()
         }

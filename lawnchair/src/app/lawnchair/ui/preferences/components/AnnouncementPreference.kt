@@ -246,7 +246,7 @@ private fun AnnouncementPreferenceItemContent(
 @Composable
 private fun InfoPreferenceWithoutLinkPreview() {
     AnnouncementPreferenceItemContent(
-        text = "Very important announcement ",
+        text = "Very important announcement",
         url = "",
         icon = Icons.Rounded.NewReleases,
     )

@@ -166,6 +166,12 @@ class FeedBridge(private val context: Context) {
             "com.google.android.googlequicksearchbox" to 0xe3ca78d8,
             // Pixel Bridge (or launcher)
             "com.google.android.apps.nexuslauncher" to 0xb662cc2f,
+            // Google Go
+            "com.google.android.apps.searchlite" to 0x0fa41615,
+            // Lawnfeed
+            "app.lawnchair.lawnfeed" to 0x60e8fb7d,
+            // Neo Feed
+            "com.saulhdev.neofeed" to 0xc2d0ffe8,
         )
 
         fun getAvailableProviders(context: Context) = context.packageManager
@@ -177,6 +183,7 @@ class FeedBridge(private val context: Context) {
             .map { it.serviceInfo.applicationInfo }
             .distinct()
             .filter { getInstance(context).CustomBridgeInfo(it.packageName).isSigned() }
+            .sortedBy { it.loadLabel(context.packageManager).toString() }
 
         @JvmStatic
         fun useBridge(context: Context) = getInstance(context).let { it.shouldUseFeed || it.customBridgeAvailable() }

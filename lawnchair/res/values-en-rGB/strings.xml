@@ -81,6 +81,7 @@
 
     <!-- Toast text and tips -->
     <string name="copied_toast">Copied to clipboard</string>
+    <string name="calculator_search_result_copied_toast">Result copied to clipboard</string>
     <string name="item_removed">Item removed</string>
 
     <!-- Miscellaneous -->
@@ -213,6 +214,10 @@
     <string name="icon_shape_square">Square</string>
     <string name="icon_shape_squircle">Squircle</string>
     <string name="icon_shape_teardrop">Teardrop</string>
+    <string name="icon_shape_lemon">Lemon</string>
+    <string name="icon_shape_light_squircle">Light squircle</string>
+    <string name="icon_shape_strong_squircle">Strong squircle</string>
+    <string name="icon_shape_ultra_squircle">Ultra squircle</string>
 
     <!-- Custom icon shapes -->
     <string name="custom_icon_shape">Custom icon shape</string>
@@ -220,8 +225,14 @@
     <string name="custom_icon_shape_edit">Edit custom icon shape</string>
     <string name="custom_icon_shape_corner">Corner shape</string>
     <string name="custom_icon_shape_corner_round">Round</string>
-    <string name="custom_icon_shape_corner_squircle">Smooth</string>
+    <string name="custom_icon_shape_corner_squircle">Squircle</string>
     <string name="custom_icon_shape_corner_cut">Cut</string>
+    <string name="custom_icon_shape_corner_arc">Arc</string>
+    <string name="custom_icon_shape_corner_cupertino">iOS</string>
+    <string name="custom_icon_shape_corner_light_squircle">Light squircle</string>
+    <string name="custom_icon_shape_corner_sammy">One UI</string>
+    <string name="custom_icon_shape_corner_strong_squircle">Strong squircle</string>
+    <string name="custom_icon_shape_corner_ultra_squircle">Ultra squircle</string>
     <string name="custom_icon_shape_top_left">Top left</string>
     <string name="custom_icon_shape_top_right">Top right</string>
     <string name="custom_icon_shape_bottom_left">Bottom left</string>
@@ -641,7 +652,7 @@
     <string name="hidden_apps_show_name_typed">If full name is typed</string>
 
     <string name="app_search_algorithm">Search algorithm</string>
-    <string name="search_algorithm_app_search">App Search</string>
+    <string name="search_algorithm_app_search">App search</string>
     <string name="search_algorithm_global_search_on_device">Global search (on-device)</string>
     <string name="search_algorithm_global_search_via_asi">Global search (via ASI)</string>
 

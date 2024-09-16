@@ -67,12 +67,22 @@ class IconShapeManager(private val context: Context) {
         val shapeR = Region()
         return listOf(
             IconShape.Circle,
-            IconShape.Square,
-            IconShape.RoundedSquare,
-            IconShape.Squircle,
-            IconShape.Sammy,
-            IconShape.Teardrop,
             IconShape.Cylinder,
+            // IconShape.Diamond,
+            IconShape.Egg,
+            // IconShape.Hexagon,
+            IconShape.Cupertino,
+            IconShape.Lemon,
+            IconShape.LightSquircle,
+            // IconShape.Octagon,
+            IconShape.Sammy,
+            IconShape.RoundedSquare,
+            IconShape.SharpSquare,
+            IconShape.Square,
+            IconShape.Squircle,
+            IconShape.StrongSquircle,
+            IconShape.Teardrop,
+            IconShape.UltraSquircle,
         )
             .minByOrNull {
                 shapePath.reset()

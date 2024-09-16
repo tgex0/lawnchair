@@ -46,3 +46,19 @@ Please visit the [Lawnchair Contributing Guidelines](CONTRIBUTING.md) for inform
 -   [_XDA_ thread](https://forum.xda-developers.com/t/lawnchair-customizable-pixel-launcher.3627137/)
 
 You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairLauncher/lawnchair/wiki).
+
+## Modifications
+
+-   Added ability to copy Calculator search result to clipboard
+-   Added iOS, Light squircle, One UI, Strong squircle and Ultra squircle to Custom Icon corner shapes
+-   Added Lemon, Light squircle, Strong squircle and Ultra squircle icon shapes
+-   Added Google Go, Lawnfeed and Neo Feed to Feed providers whitelist
+-   Corrected case of user interface label
+-   Arranged Custom Icon corner shapes in alphabetical order
+-   Arranged Feed providers in alphabetical order
+-   Arranged Quick Search Bar providers in alphabetical order
+-   Ensured Custom Icon shape sliders are of equal length
+-   Ensured System Icon shape is as accurate as possible
+-   Fixed One UI icon corner shape
+-   Fixed typo in text string
+-   Signed APK with personal key
