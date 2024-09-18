@@ -53,10 +53,12 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Added iOS, Light squircle, One UI, Strong squircle and Ultra squircle to Custom Icon corner shapes
 -   Added Lemon, Light squircle, Strong squircle and Ultra squircle icon shapes
 -   Added Google Go, Lawnfeed and Neo Feed to Feed providers whitelist
+-   Allowed Icon size to be changed by increments of 5%
 -   Corrected case of user interface label
 -   Arranged Custom Icon corner shapes in alphabetical order
 -   Arranged Feed providers in alphabetical order
 -   Arranged Quick Search Bar providers in alphabetical order
+-   Ensured user interface label can be translated
 -   Ensured Custom Icon shape sliders are of equal length
 -   Ensured System Icon shape is as accurate as possible
 -   Fixed One UI icon corner shape
