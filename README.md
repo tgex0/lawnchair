@@ -50,19 +50,20 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 ## Modifications
 
 -   Added ability to copy Calculator search result to clipboard
+-   Added Google Go, Lawnfeed and Neo Feed to Feed providers whitelist
 -   Added iOS, Light squircle, One UI, Strong squircle and Ultra squircle to Custom Icon corner shapes
 -   Added Lemon, Light squircle, Strong squircle and Ultra squircle icon shapes
--   Added Google Go, Lawnfeed and Neo Feed to Feed providers whitelist
--   Corrected case of user interface label
 -   Arranged Custom Icon corner shapes in alphabetical order
 -   Arranged Feed providers in alphabetical order
 -   Arranged Quick Search Bar providers in alphabetical order
--   Ensured user interface label can be translated
+-   Corrected case of user interface label
 -   Ensured Custom Icon shape sliders are of equal length
 -   Ensured System Icon shape is as accurate as possible
+-   Ensured user interface label can be translated
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
 -   Increased adjustment granularity of Home screen and App drawer Icons Icon size from 10% to 5%
+-   Prevented duplicate entries in font list
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Signed APK with personal key
 -   Upgraded Inter font from v3 to v4
