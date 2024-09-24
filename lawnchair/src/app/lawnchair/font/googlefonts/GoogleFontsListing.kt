@@ -44,7 +44,7 @@ class GoogleFontsListing private constructor(private val context: Context) {
         val prefs = PreferenceManager2.getInstance(context)
         val userFontsString = prefs.additionalFonts.get().first()
         val userFonts = if (userFontsString.isEmpty()) emptyList() else userFontsString.split(",")
-        return listOf("Inter v4") + userFonts
+        return listOf("Inter") + userFonts
     }
 
     private suspend fun parseFontListing(json: JSONObject): List<GoogleFontInfo> {

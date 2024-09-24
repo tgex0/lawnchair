@@ -58,12 +58,12 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Arranged Quick Search Bar providers in alphabetical order
 -   Corrected case of user interface label
 -   Ensured Custom Icon shape sliders are of equal length
+-   Ensured variant is displayed after family for default font settings
 -   Ensured System Icon shape is as accurate as possible
 -   Ensured user interface label can be translated
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
 -   Increased adjustment granularity of Home screen and App drawer Icons Icon size from 10% to 5%
--   Prevented duplicate entries in font list
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Signed APK with personal key
 -   Upgraded Inter font from v3 to v4
