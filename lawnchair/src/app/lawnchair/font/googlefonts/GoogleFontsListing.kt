@@ -60,7 +60,7 @@ class GoogleFontsListing private constructor(private val context: Context) {
         }
         getAdditionalFonts().forEach {
             val fontVariants = if (it == "Inter") {
-                listOf("100", "200", "300", "400", "500", "600", "700", "800", "900")
+                listOf("100", "200", "300", "regular", "500", "600", "700", "800", "900")
             } else {
                 listOf("regular", "italic", "500", "500italic", "700", "700italic")
             }
