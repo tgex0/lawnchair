@@ -120,7 +120,7 @@ fun DockPreferences(
                     adapter = prefs2.hotseatBottomFactor.getAdapter(),
                     label = stringResource(id = R.string.hotseat_bottom_space_label),
                     valueRange = 0.0F..1.7F,
-                    step = 0.1F,
+                    step = 0.05F,
                     showAsPercentage = true,
                 )
             }

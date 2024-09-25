@@ -328,7 +328,7 @@ private fun CornerSlider(
     val padding = 6f
     val maxLengthDp = pxToDp(maxLengthPx) + padding
 
-    val step = 0.1f
+    val step = 0.05f
     val valueRange = 0f..1f
 
     PreferenceTemplate(

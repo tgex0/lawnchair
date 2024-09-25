@@ -165,7 +165,7 @@ fun GeneralPreferences() {
                     label = stringResource(id = R.string.background_lightness_label),
                     adapter = prefs.coloredBackgroundLightness.getAdapter(),
                     valueRange = 0F..1F,
-                    step = 0.1f,
+                    step = 0.05f,
                     showAsPercentage = true,
                 )
             }
