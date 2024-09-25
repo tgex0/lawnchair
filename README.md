@@ -65,6 +65,7 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
 -   Increased adjustment granularity of all percentage sliders from 10% to 5%
+-   Prevented duplicate fonts in font list
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Signed APK with personal key
 -   Upgraded Inter font from v3 to v4

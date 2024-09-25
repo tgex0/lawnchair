@@ -53,12 +53,19 @@ class GoogleFontsListing private constructor(private val context: Context) {
         for (i in (0 until items.length())) {
             val font = items.getJSONObject(i)
             val family = font.getString(KEY_FAMILY)
-            val variants = font.getJSONArray(KEY_VARIANTS).toArrayList<String>()
-            fonts.add(GoogleFontInfo(family, variants))
+            if (family != "Inter") {
+                val variants = font.getJSONArray(KEY_VARIANTS).toArrayList<String>()
+                fonts.add(GoogleFontInfo(family, variants))
+            }
         }
         getAdditionalFonts().forEach {
-            fonts.add(GoogleFontInfo(it, listOf("regular", "italic", "500", "500italic", "700", "700italic")))
-        }
+            val fontVariants = if (it == "Inter") {
+                listOf("100", "200", "300", "400", "500", "600", "700", "800", "900")
+            } else {
+                listOf("regular", "italic", "500", "500italic", "700", "700italic")
+            }
+            fonts.add(GoogleFontInfo(it, fontVariants))
+         }
         fonts.sort()
         return fonts
     }
