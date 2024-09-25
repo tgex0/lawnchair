@@ -65,7 +65,7 @@ class GoogleFontsListing private constructor(private val context: Context) {
                 listOf("regular", "italic", "500", "500italic", "700", "700italic")
             }
             fonts.add(GoogleFontInfo(it, fontVariants))
-         }
+        }
         fonts.sort()
         return fonts
     }
