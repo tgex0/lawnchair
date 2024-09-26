@@ -70,4 +70,4 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Prevented duplicate fonts in font list
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Signed APK with personal key
--   Upgraded Inter font from v3 to v4
+-   Upgraded Inter font from v3.12 to v4.0
