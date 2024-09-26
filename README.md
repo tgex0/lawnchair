@@ -58,6 +58,7 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Arranged Feed providers in alphabetical order
 -   Arranged Quick Search Bar providers in alphabetical order
 -   Corrected case of user interface label
+-   Corrected font variant label
 -   Ensured Custom Icon shape sliders are of equal length
 -   Ensured variant is displayed after family for default font settings
 -   Ensured System Icon shape is as accurate as possible

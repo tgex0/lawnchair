@@ -43,8 +43,7 @@ class GoogleFontsListing private constructor(private val context: Context) {
     private suspend fun getAdditionalFonts(): List<String> {
         val prefs = PreferenceManager2.getInstance(context)
         val userFontsString = prefs.additionalFonts.get().first()
-        val userFonts = if (userFontsString.isEmpty()) emptyList() else userFontsString.split(",")
-        return listOf("Inter") + userFonts
+        return if (userFontsString.isEmpty()) emptyList() else userFontsString.split(",")
     }
 
     private suspend fun parseFontListing(json: JSONObject): List<GoogleFontInfo> {
@@ -53,18 +52,11 @@ class GoogleFontsListing private constructor(private val context: Context) {
         for (i in (0 until items.length())) {
             val font = items.getJSONObject(i)
             val family = font.getString(KEY_FAMILY)
-            if (family != "Inter") {
-                val variants = font.getJSONArray(KEY_VARIANTS).toArrayList<String>()
-                fonts.add(GoogleFontInfo(family, variants))
-            }
+            val variants = font.getJSONArray(KEY_VARIANTS).toArrayList<String>()
+            fonts.add(GoogleFontInfo(family, variants))
         }
         getAdditionalFonts().forEach {
-            val fontVariants = if (it == "Inter") {
-                listOf("100", "200", "300", "regular", "500", "600", "700", "800", "900")
-            } else {
-                listOf("regular", "italic", "500", "500italic", "700", "700italic")
-            }
-            fonts.add(GoogleFontInfo(it, fontVariants))
+            fonts.add(GoogleFontInfo(it, listOf("regular", "italic", "500", "500italic", "700", "700italic")))
         }
         fonts.sort()
         return fonts
