@@ -57,6 +57,7 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Arranged Custom Icon corner shapes in alphabetical order
 -   Arranged Feed providers in alphabetical order
 -   Arranged Quick Search Bar providers in alphabetical order
+-   Arranged sans-serif system fonts in alphabetical order
 -   Corrected case of user interface label
 -   Corrected font variant label
 -   Ensured Custom Icon shape sliders are of equal length
