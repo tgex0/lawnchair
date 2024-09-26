@@ -61,9 +61,9 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Corrected case of user interface label
 -   Corrected font variant label
 -   Ensured Custom Icon shape sliders are of equal length
--   Ensured variant is displayed after family for default font settings
 -   Ensured System Icon shape is as accurate as possible
 -   Ensured user interface label can be translated
+-   Ensured variant is displayed after family for default font settings
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
 -   Increased adjustment granularity of all percentage sliders from 10% to 5%
