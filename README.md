@@ -51,7 +51,9 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 ## Modifications
 
 -   Added ability to copy Calculator search result to clipboard
+-   Added ability to use AssetFont and ResourceFont font types in font list
 -   Added Google Go, Lawnfeed and Neo Feed to Feed providers whitelist
+-   Added Inter v4.0 font to font list
 -   Added iOS, Light squircle, One UI, Strong squircle and Ultra squircle to Custom Icon corner shapes
 -   Added Lemon, Light squircle, Strong squircle and Ultra squircle icon shapes
 -   Arranged Custom Icon corner shapes in alphabetical order
@@ -67,7 +69,7 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Fixed One UI icon corner shape
 -   Fixed typo in text string
 -   Increased adjustment granularity of all percentage sliders from 10% to 5%
--   Prevented duplicate fonts in font list
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
+-   Removed duplicate Inter font from font list
 -   Signed APK with personal key
--   Upgraded Inter font from v3.12 to v4.0
+-   Upgraded Inter ResourceFont font from v3.12 to v4.0
