@@ -72,4 +72,5 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Removed duplicate Inter font from font list
 -   Signed APK with personal key
--   Upgraded Inter ResourceFont font from v3.12 to v4.0
+-   Updated Google Fonts list
+-   Updated Inter ResourceFont font from v3.12 to v4.0
