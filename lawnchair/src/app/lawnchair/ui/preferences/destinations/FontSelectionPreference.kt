@@ -74,24 +74,26 @@ fun FontSelection(
         list.add(FontCache.Family(FontCache.SystemFont("sans-serif")))
         list.add(FontCache.Family(FontCache.SystemFont("sans-serif-condensed")))
         list.add(FontCache.Family(FontCache.SystemFont("sans-serif-medium")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_black, "Inter Black")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_black_italic, "Inter Black Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_bold, "Inter Bold")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_bold_italic, "Inter Bold Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_extra_bold, "Inter Extra Bold")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_extra_bold_italic, "Inter Extra Bold Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_extra_light, "Inter Extra Light")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_extra_light_italic, "Inter Extra Light Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_italic, "Inter Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_light, "Inter Light")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_light_italic, "Inter Light Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_medium, "Inter Medium")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_medium_italic, "Inter Medium Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_regular, "Inter Regular")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_semi_bold, "Inter Semi Bold")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_semi_bold_italic, "Inter Semi Bold Italic")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_thin, "Inter Thin")))
-        list.add(FontCache.Family(FontCache.ResourceFont(context, R.font.inter_thin_italic, "Inter Thin Italic")))
+        val interVariants = HashMap<String, FontCache.Font>()
+        interVariants["100"] = FontCache.ResourceFont(context, R.font.inter_thin, "Inter v4.0 Thin")
+        interVariants["100italic"] = FontCache.ResourceFont(context, R.font.inter_thin_italic, "Inter v4.0 Thin Italic")
+        interVariants["200"] = FontCache.ResourceFont(context, R.font.inter_extra_light, "Inter v4.0 Extra Light")
+        interVariants["200italic"] = FontCache.ResourceFont(context, R.font.inter_extra_light_italic, "Inter v4.0 Extra Light Italic")
+        interVariants["300"] = FontCache.ResourceFont(context, R.font.inter_light, "Inter v4.0 Light")
+        interVariants["300italic"] = FontCache.ResourceFont(context, R.font.inter_light_italic, "Inter v4.0 Light Italic")
+        interVariants["regular"] = FontCache.ResourceFont(context, R.font.inter_regular, "Inter v4.0 Regular")
+        interVariants["italic"] = FontCache.ResourceFont(context, R.font.inter_italic, "Inter v4.0 Italic")
+        interVariants["500"] = FontCache.ResourceFont(context, R.font.inter_medium, "Inter v4.0 Medium")
+        interVariants["500italic"] = FontCache.ResourceFont(context, R.font.inter_medium_italic, "Inter v4.0 Medium Italic")
+        interVariants["600"] = FontCache.ResourceFont(context, R.font.inter_semi_bold, "Inter v4.0 Semi Bold")
+        interVariants["600italic"] = FontCache.ResourceFont(context, R.font.inter_semi_bold, "Inter v4.0 Semi Bold Italic")
+        interVariants["700"] = FontCache.ResourceFont(context, R.font.inter_bold, "Inter v4.0 Bold")
+        interVariants["700italic"] = FontCache.ResourceFont(context, R.font.inter_bold_italic, "Inter v4.0 Bold Italic")
+        interVariants["800"] = FontCache.ResourceFont(context, R.font.inter_extra_bold, "Inter v4.0 Extra Bold")
+        interVariants["800italic"] = FontCache.ResourceFont(context, R.font.inter_extra_bold_italic, "Inter v4.0 Extra Bold Italic")
+        interVariants["900"] = FontCache.ResourceFont(context, R.font.inter_black, "Inter v4.0 Black")
+        interVariants["900italic"] = FontCache.ResourceFont(context, R.font.inter_black_italic, "Inter v4.0 Black Italic")
+        list.add(FontCache.Family("Inter v4.0", interVariants))
         GoogleFontsListing.INSTANCE.get(context).getFonts().mapTo(list) { font ->
             val variantsMap = HashMap<String, FontCache.Font>()
             val variants = font.variants.toTypedArray()
@@ -309,7 +311,7 @@ private fun VariantDropdown(
             AndroidText(
                 modifier = Modifier.wrapContentWidth(),
                 update = {
-                    it.text = selectedFont.displayName
+                    it.text = selectedFont.displayName.removePrefix(family.displayName).trim()
                     it.setFont(selectedFont)
                 },
             )
@@ -330,7 +332,7 @@ private fun VariantDropdown(
                     },
                     text = {
                         Text(
-                            text = font.displayName,
+                            text = font.displayName.removePrefix(family.displayName).trim(),
                             fontFamily = font.composeFontFamily,
                         )
                     },
