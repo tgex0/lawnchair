@@ -280,6 +280,13 @@ private val VariantButtonContentPadding = PaddingValues(
     bottom = 8.dp,
 )
 
+private fun removeFamilyPrefix(
+    familyName: CharSequence,
+    fontName: CharSequence,
+): String {
+    return fontName.removePrefix(familyName).trim().toString()
+}
+
 @Composable
 private fun VariantDropdown(
     adapter: PreferenceAdapter<FontCache.Font>,
@@ -311,7 +318,7 @@ private fun VariantDropdown(
             AndroidText(
                 modifier = Modifier.wrapContentWidth(),
                 update = {
-                    it.text = selectedFont.displayName.removePrefix(family.displayName).trim()
+                    it.text = removeFamilyPrefix(family.displayName, selectedFont.displayName)
                     it.setFont(selectedFont)
                 },
             )
@@ -332,7 +339,7 @@ private fun VariantDropdown(
                     },
                     text = {
                         Text(
-                            text = font.displayName.removePrefix(family.displayName).trim(),
+                            text = removeFamilyPrefix(family.displayName, font.displayName),
                             fontFamily = font.composeFontFamily,
                         )
                     },
