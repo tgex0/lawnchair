@@ -86,7 +86,7 @@ fun FontSelection(
         interVariants["500"] = FontCache.ResourceFont(context, R.font.inter_medium, "Inter v4.0 Medium")
         interVariants["500italic"] = FontCache.ResourceFont(context, R.font.inter_medium_italic, "Inter v4.0 Medium Italic")
         interVariants["600"] = FontCache.ResourceFont(context, R.font.inter_semi_bold, "Inter v4.0 Semi Bold")
-        interVariants["600italic"] = FontCache.ResourceFont(context, R.font.inter_semi_bold, "Inter v4.0 Semi Bold Italic")
+        interVariants["600italic"] = FontCache.ResourceFont(context, R.font.inter_semi_bold_italic, "Inter v4.0 Semi Bold Italic")
         interVariants["700"] = FontCache.ResourceFont(context, R.font.inter_bold, "Inter v4.0 Bold")
         interVariants["700italic"] = FontCache.ResourceFont(context, R.font.inter_bold_italic, "Inter v4.0 Bold Italic")
         interVariants["800"] = FontCache.ResourceFont(context, R.font.inter_extra_bold, "Inter v4.0 Extra Bold")
