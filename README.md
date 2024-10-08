@@ -64,6 +64,8 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Corrected font variant label
 -   Corrected typo in text string
 -   Ensured Custom Icon shape sliders are of equal length
+-   Ensured only one radio button is selected at any one time in font list
+-   Ensured radio button is selected on first visit to font list
 -   Ensured System Icon shape is as accurate as possible
 -   Ensured user interface label can be translated
 -   Ensured variant is displayed after family for default font labels
@@ -73,5 +75,6 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Removed duplicate Inter font from font list
 -   Renamed Inter ResourceFont font from Inter to Inter v4.0
 -   Signed APK with personal key
+-   Supported all variants of Inter ResourceFont font
 -   Updated Google Fonts list
 -   Updated Inter ResourceFont font from v3.12 to v4.0
