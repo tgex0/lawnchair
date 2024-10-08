@@ -62,12 +62,12 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Arranged sans-serif system fonts in alphabetical order
 -   Corrected case of user interface label
 -   Corrected font variant label
+-   Corrected typo in text string
 -   Ensured Custom Icon shape sliders are of equal length
 -   Ensured System Icon shape is as accurate as possible
 -   Ensured user interface label can be translated
 -   Ensured variant is displayed after family for default font labels
 -   Fixed One UI icon corner shape
--   Fixed typo in text string
 -   Increased adjustment granularity of all percentage sliders from 10% to 5%
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Removed duplicate Inter font from font list
