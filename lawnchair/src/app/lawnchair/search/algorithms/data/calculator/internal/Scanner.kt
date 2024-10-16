@@ -76,6 +76,14 @@ internal class Scanner(
             ',' -> addToken(COMMA)
             '(' -> addToken(LEFT_PAREN)
             ')' -> addToken(RIGHT_PAREN)
+            '\u00d7' -> addToken(STAR)
+            '\u00f7' -> addToken(SLASH)
+            '\u2212' -> addToken(MINUS)
+            '\u2227' -> addToken(AMP_AMP)
+            '\u2228' -> addToken(BAR_BAR)
+            '\u2260' -> addToken(NOT_EQUAL)
+            '\u2264' -> addToken(LESS_EQUAL)
+            '\u2265' -> addToken(GREATER_EQUAL)
             else -> {
                 when {
                     c.isDigit() -> number()

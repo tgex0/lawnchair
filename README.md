@@ -56,6 +56,8 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Added Inter ResourceFont font to font list
 -   Added iOS, Light squircle, One UI, Strong squircle and Ultra squircle to Custom Icon corner shapes
 -   Added Lemon, Light squircle, Strong squircle and Ultra squircle icon shapes
+-   Allowed mathematical constants e and pi to be case insensitive in Calculator search
+-   Allowed mathematical symbols to be used in Calculator search
 -   Arranged Custom Icon corner shapes in alphabetical order
 -   Arranged Feed providers in alphabetical order
 -   Arranged Quick Search Bar providers in alphabetical order
@@ -70,6 +72,7 @@ You can view all our links in the [Lawnchair Wiki](https://github.com/LawnchairL
 -   Ensured user interface label can be translated
 -   Ensured variant is displayed after family for default font labels
 -   Fixed One UI icon corner shape
+-   Formatted Calculator search result equation to display mathematical symbols
 -   Increased adjustment granularity of all percentage sliders from 10% to 5%
 -   Reduced minimum Home screen and App drawer Icons Label size from 50% to 30%
 -   Removed duplicate Inter font from font list

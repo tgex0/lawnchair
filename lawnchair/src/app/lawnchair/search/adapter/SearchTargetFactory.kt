@@ -94,6 +94,35 @@ class SearchTargetFactory(
     ): SearchTargetCompat {
         val result = calculation.result
         val equation = calculation.equation
+        val formattedEquation = equation
+            .replace(Regex("\\s+"), "")
+            .replace("e", "e", true)
+            .replace("pi", "\u03c0", true)
+            .replace("*", " \u00d7 ")
+            .replace("\u00d7", " \u00d7 ")
+            .replace("/", " \u00f7 ")
+            .replace("\u00f7", " \u00f7 ")
+            .replace("-", " \u2212 ")
+            .replace("\u2212", " \u2212 ")
+            .replace("&&", " \u2227 ")
+            .replace("\u2227", " \u2227 ")
+            .replace("||", " \u2228 ")
+            .replace("\u2228", " \u2228 ")
+            .replace("!=", " \u2260 ")
+            .replace("\u2260", " \u2260 ")
+            .replace("<=", " \u2264 ")
+            .replace("\u2264", " \u2264 ")
+            .replace(">=", " \u2265 ")
+            .replace("\u2265", " \u2265 ")
+            .replace("%", " % ")
+            .replace("^", " ^ ")
+            .replace("+", " + ")
+            .replace(",", " , ")
+            .replace("<", " < ")
+            .replace(">", " > ")
+            .replace(Regex("(?<![=])==(?!=)"), " == ")
+            .replace(Regex("(?<![=])=(?![=])"), " = ")
+            .plus(" =")
         val uuid = UUID.randomUUID().toString()
         val id = "calculator:$uuid"
         val action = SearchActionCompat.Builder(id, result)
@@ -101,7 +130,7 @@ class SearchTargetFactory(
                 Icon.createWithResource(context, R.drawable.calculator)
                     .setTint(ColorTokens.TextColorSecondary.resolveColor(context)),
             )
-            .setSubtitle(equation)
+            .setSubtitle(formattedEquation)
             .setIntent(Intent())
             .build()
 

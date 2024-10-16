@@ -18,8 +18,15 @@ class Expressions {
     private val evaluator = Evaluator()
 
     init {
-        define("pi", BigDecimal(Math.PI).setScale(33, RoundingMode.HALF_EVEN))
-        define("e", BigDecimal(Math.E).setScale(33, RoundingMode.HALF_EVEN))
+        val eValue = BigDecimal(Math.E).setScale(33, RoundingMode.HALF_EVEN)
+        val piValue = BigDecimal(Math.PI).setScale(33, RoundingMode.HALF_EVEN)
+        define("E", eValue)
+        define("e", eValue)
+        define("PI", piValue)
+        define("Pi", piValue)
+        define("pI", piValue)
+        define("pi", piValue)
+        define("\u03c0", piValue)
 
         evaluator.addFunction("abs") { arguments ->
             if (arguments.size != 1) {
