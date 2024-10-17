@@ -26,8 +26,6 @@ class Expressions {
         define("Pi", piValue)
         define("pI", piValue)
         define("pi", piValue)
-        define("\u03a0", piValue)
-        define("\u03c0", piValue)
 
         evaluator.addFunction("abs") { arguments ->
             if (arguments.size != 1) {

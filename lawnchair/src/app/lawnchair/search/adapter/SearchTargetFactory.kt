@@ -98,7 +98,6 @@ class SearchTargetFactory(
             .replace(Regex("\\s+"), "")
             .replace("E", "e")
             .replace("pi", "\u03c0", true)
-            .replace("\u03a0", "\u03c0", true)
             .replace("*", " \u00d7 ")
             .replace("\u00d7", " \u00d7 ")
             .replace("/", " \u00f7 ")
