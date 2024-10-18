@@ -105,7 +105,7 @@ class SearchTargetFactory(
             .replace("%", " % ")
             .replace("^", " ^ ")
             .replace(">", " > ")
-            .replace(Regex(>=|"≥"), " ≥ ")
+            .replace(Regex(">=|≥"), " ≥ ")
             .replace("<", " < ")
             .replace(Regex("<=|≤"), " ≤ ")
             .replace(Regex("\\|\\||∨"), " ∨ ")
