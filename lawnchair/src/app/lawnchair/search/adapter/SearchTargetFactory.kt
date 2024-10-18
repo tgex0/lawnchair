@@ -107,7 +107,7 @@ class SearchTargetFactory(
             .replace("&&", "∧")
             .replace("!=", "≠")
             .replace(",", ", ")
-			.replace(Regex("([+−×÷%\\^>≥<≤∨∧≠])", " $1 ")
+			.replace(Regex("([+−×÷%\\^>≥<≤∨∧≠])"), " $1 ")
             .replace(Regex("(?<![=])==(?!=)"), " == ")
             .replace(Regex("(?<![=])=(?![=])"), " = ")
 			.replace(Regex("\\s+"), " ")
