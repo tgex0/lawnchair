@@ -5,7 +5,6 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,7 +30,7 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,12 +43,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import app.lawnchair.font.FontAxes
 import app.lawnchair.font.FontCache
 import app.lawnchair.font.googlefonts.GoogleFontsListing
 import app.lawnchair.preferences.BasePreferenceManager
 import app.lawnchair.preferences.PreferenceAdapter
 import app.lawnchair.preferences.getAdapter
-import app.lawnchair.ui.AndroidText
 import app.lawnchair.ui.OverflowMenu
 import app.lawnchair.ui.preferences.components.layout.PreferenceDivider
 import app.lawnchair.ui.preferences.components.layout.PreferenceGroupItem
@@ -73,28 +72,73 @@ fun FontSelection(
     val context = LocalContext.current
     val customFonts by remember { FontCache.INSTANCE.get(context).customFonts }.collectAsStateWithLifecycle(initialValue = emptyList())
     val items by produceState(initialValue = emptyList<FontCache.Family>()) {
+        fun flex(weight: Int, label: Int) = FontCache.ResourceFont(
+            context,
+            R.font.googlesansflex_variable,
+            "Google Sans Flex Variable " + context.getString(label),
+            mapOf(FontAxes.WEIGHT to weight.toFloat()),
+        )
         val list = mutableListOf<FontCache.Family>()
         list.add(FontCache.Family(FontCache.SystemFont("sans-serif")))
-        list.add(FontCache.Family(FontCache.SystemFont("sans-serif-medium")))
         list.add(FontCache.Family(FontCache.SystemFont("sans-serif-condensed")))
-        val googleSansFlexVariants = HashMap<String, FontCache.Font>()
-        googleSansFlexVariants["regular"] = FontCache.ResourceFont(context, R.font.googlesansflex_variable, "Google Sans Flex " + context.getString(R.string.font_weight_regular))
-        googleSansFlexVariants["500"] = FontCache.ResourceFont(context, R.font.googlesansflex_variable, "Google Sans Flex " + context.getString(R.string.font_weight_medium))
-        googleSansFlexVariants["600"] = FontCache.ResourceFont(context, R.font.googlesansflex_variable, "Google Sans Flex " + context.getString(R.string.font_weight_semi_bold))
-        googleSansFlexVariants["700"] = FontCache.ResourceFont(context, R.font.googlesansflex_variable, "Google Sans Flex " + context.getString(R.string.font_weight_bold))
-        list.add(FontCache.Family("Google Sans Flex", googleSansFlexVariants))
-        GoogleFontsListing.INSTANCE.get(context).getFonts().mapTo(list) { font ->
-            val variantsMap = HashMap<String, FontCache.Font>()
-            val variants = font.variants.toTypedArray()
-            font.variants.forEach { variant ->
-                variantsMap[variant] = FontCache.GoogleFont(context, font.family, variant, variants)
+        list.add(FontCache.Family(FontCache.SystemFont("sans-serif-medium")))
+        val flexVariants = mapOf(
+            "100" to flex(100, R.string.font_weight_thin),
+            "200" to flex(200, R.string.font_weight_extra_light),
+            "300" to flex(300, R.string.font_weight_light),
+            "400" to flex(400, R.string.font_weight_regular),
+            "500" to flex(500, R.string.font_weight_medium),
+            "600" to flex(600, R.string.font_weight_semi_bold),
+            "700" to flex(700, R.string.font_weight_bold),
+            "800" to flex(800, R.string.font_weight_extra_bold),
+            "900" to flex(900, R.string.font_weight_extra_black),
+        )
+        list.add(
+            FontCache.Family(
+                displayName = "Google Sans Flex Variable",
+                variants = flexVariants,
+            ),
+        )
+        GoogleFontsListing.INSTANCE
+            .get(context)
+            .getFonts()
+            .sortedBy { it.family.lowercase() }
+            .mapTo(list) { font ->
+                val variantsMap = HashMap<String, FontCache.Font>()
+                val variants = font.variants
+                    .sortedBy { GoogleFontsListing.getWeight(it).toInt() }
+                    .toTypedArray()
+                font.variants.forEach { variant ->
+                    variantsMap[variant] = FontCache.GoogleFont(context, font.family, variant, variants)
+                }
+                FontCache.Family(font.family, variantsMap)
             }
-            FontCache.Family(font.family, variantsMap)
-        }
         value = list
     }
     val allItems by remember { derivedStateOf { items + customFonts } }
     val adapter = fontPref.getAdapter()
+
+    LaunchedEffect(items, customFonts) {
+        val currentFont = adapter.state.value ?: return@LaunchedEffect
+
+        val allFonts = items.flatMap { it.variants.values } +
+            customFonts.flatMap { it.variants.values }
+
+        val matchedFont = allFonts.firstOrNull { candidate ->
+            candidate::class == currentFont::class &&
+                candidate.displayName == currentFont.displayName &&
+                candidate.fontWeight == currentFont.fontWeight &&
+                candidate.isItalic == currentFont.isItalic
+        }
+
+        if (currentFont !is FontCache.TTFFont &&
+            matchedFont != null &&
+            matchedFont != currentFont
+        ) {
+            adapter.onChange(matchedFont)
+        }
+    }
+
     var searchQuery by remember { mutableStateOf("") }
 
     val hasFilter by remember { derivedStateOf { searchQuery.isNotEmpty() } }
@@ -104,7 +148,7 @@ fun FontSelection(
                 val lowerCaseQuery = searchQuery.lowercase()
                 allItems.filter { it.displayName.lowercase().contains(lowerCaseQuery) }
             } else {
-                items
+                allItems
             }
         }
     }
@@ -167,7 +211,7 @@ fun FontSelection(
                 }
                 itemsIndexed(
                     items = customFonts,
-                    key = { _, family -> family.toString() },
+                    key = { _, family -> family.displayName },
                     contentType = { _, _ -> ContentType.FONT },
                 ) { index, family ->
                     PreferenceGroupItem(
@@ -192,7 +236,7 @@ fun FontSelection(
             preferenceGroupItems(
                 filteredItems,
                 isFirstChild = false,
-                key = { _, family -> family.toString() },
+                key = { _, family -> family.displayName },
                 contentType = { ContentType.FONT },
             ) { _, family ->
                 FontSelectionItem(
@@ -215,7 +259,12 @@ private fun FontSelectionItem(
     val selected = family.variants.any { it.value == adapter.state.value }
     PreferenceTemplate(
         modifier = modifier,
-        onClick = { adapter.onChange(family.default) },
+            onClick = {
+                adapter.onChange(
+                    adapter.state.value.takeIf { it in family.variants.values }
+                        ?: family.default,
+                )
+            },
         title = {
             Box {
                 Text(
@@ -284,10 +333,9 @@ private fun VariantDropdown(
         var showVariants by remember { mutableStateOf(false) }
 
         val context = LocalContext.current
-        DisposableEffect(family) {
+        LaunchedEffect(family) {
             val fontCache = FontCache.INSTANCE.get(context)
             family.variants.forEach { fontCache.preloadFont(it.value) }
-            onDispose { }
         }
 
         TextButton(
@@ -295,12 +343,10 @@ private fun VariantDropdown(
             colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
             shapes = ButtonDefaults.shapes(),
         ) {
-            AndroidText(
+            Text(
+                text = removeFamilyPrefix(family.displayName, selectedFont.displayName),
+                fontFamily = selectedFont.composeFontFamily,
                 modifier = Modifier.wrapContentWidth(),
-                update = {
-                    it.text = removeFamilyPrefix(family.displayName, selectedFont.displayName)
-                    it.setFont(selectedFont)
-                },
             )
             Icon(
                 imageVector = Icons.Rounded.ArrowDropDown,
