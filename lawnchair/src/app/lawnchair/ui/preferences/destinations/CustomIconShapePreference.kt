@@ -62,6 +62,8 @@ import app.lawnchair.ui.util.LocalBottomSheetHandler
 import app.lawnchair.util.copyToClipboard
 import app.lawnchair.util.getClipboardContent
 import com.android.launcher3.R
+import com.android.launcher3.util.MSDLPlayerWrapper
+import com.google.android.msdl.data.model.MSDLToken
 import kotlin.math.roundToInt
 import kotlin.toString
 
@@ -332,6 +334,7 @@ private fun CornerSlider(
     onCornerShapeChange: (IconCornerShape) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val mMSDLPlayerWrapper = MSDLPlayerWrapper.INSTANCE.get(LocalContext.current)
     val bottomSheetHandler = LocalBottomSheetHandler.current
     val options = listOf<IconCornerShape>(
         IconCornerShape.arc,
@@ -383,7 +386,10 @@ private fun CornerSlider(
             ) {
                 Slider(
                     value = value,
-                    onValueChange = onValueChange,
+                    onValueChange = { newValue ->
+                        mMSDLPlayerWrapper.playToken(MSDLToken.DRAG_INDICATOR_DISCRETE)
+                        onValueChange(newValue)
+                    },
                     valueRange = valueRange,
                     steps = getSteps(valueRange, step),
                     modifier = Modifier
@@ -399,6 +405,7 @@ private fun CornerSlider(
                     .clip(shape = MaterialTheme.shapes.small)
                     .padding(top = 2.dp)
                     .clickable {
+                        mMSDLPlayerWrapper.playToken(MSDLToken.TAP_MEDIUM_EMPHASIS)
                         bottomSheetHandler.show {
                             ModalBottomSheetContent(
                                 title = { Text(stringResource(id = R.string.custom_icon_shape_corner)) },
@@ -430,6 +437,7 @@ private fun CornerSlider(
                                                 )
                                             },
                                             onClick = {
+                                                mMSDLPlayerWrapper.playToken(MSDLToken.TAP_LOW_EMPHASIS)
                                                 bottomSheetHandler.hide()
                                                 onCornerShapeChange(option)
                                             },
