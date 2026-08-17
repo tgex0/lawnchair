@@ -35,7 +35,7 @@ google-ksp = "com.google.devtools.ksp:2.3.11"
 google-protobuf = "com.google.protobuf:0.10.0"
 cash-licensee = "app.cash.licensee:1.14.1"
 rikka-refine = { id = "dev.rikka.tools.refine", version.ref = "refine" }
-diffplug-spotless = "com.diffplug.spotless:8.9.0"
+diffplug-spotless = "com.diffplug.spotless:8.10.0"
 
 [libraries]
 # AndroidX
@@ -102,7 +102,7 @@ opto-domain = { group = "com.patrykmichalik.opto", name = "domain", version.ref 
 # Retrofit & OkHttp
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-kotlinx = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
-okhttp = "com.squareup.okhttp3:okhttp:5.4.0"
+okhttp = "com.squareup.okhttp3:okhttp:5.5.0"
 
 # Room
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
@@ -152,8 +152,8 @@ google-truth = { group = "com.google.truth", name = "truth", version.ref = "trut
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
 mockito-robolectric = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
-mockito-robolectric-bytebuddy = "net.bytebuddy:byte-buddy:1.18.11"
-mockito-robolectric-bytebuddy-agent = "net.bytebuddy:byte-buddy-agent:1.18.11"
+mockito-robolectric-bytebuddy = "net.bytebuddy:byte-buddy:1.18.12-jdk5"
+mockito-robolectric-bytebuddy-agent = "net.bytebuddy:byte-buddy-agent:1.18.12"
 
 [bundles]
 accompanist = ["accompanist-adaptive", "accompanist-drawablepainter", "accompanist-permissions"]
