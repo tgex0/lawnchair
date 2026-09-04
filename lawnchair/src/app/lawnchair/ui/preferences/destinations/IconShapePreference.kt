@@ -30,7 +30,6 @@ import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
@@ -136,7 +135,6 @@ fun ShapePreference(
     )
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun ShapeTabContent(currentTab: ShapeRoute) {
     val context = LocalContext.current
@@ -192,7 +190,6 @@ private fun ShapeTabContent(currentTab: ShapeRoute) {
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun CustomIconShapePreferenceOption(
     iconShapeAdapter: PreferenceAdapter<IconShape>,
